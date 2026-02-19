@@ -94,15 +94,7 @@ export default function Navigation() {
 
         {/* RIGHT SIDE ACTIONS */}
         <Flex gap={3} align="center">
-          <Button
-            display={{ base: "none", sm: "block" }}
-            variant="ghost"
-            size="sm"
-            fontWeight="bold"
-            borderRadius="full"
-          >
-            Login
-          </Button>
+         
           <Button
             bg="black"
             color="white"
@@ -116,7 +108,7 @@ export default function Navigation() {
             _active={{ transform: "scale(0.95)" }}
             transition="0.2s"
           >
-            Get Started
+              Login
           </Button>
 
           {/* MOBILE MENU ICON */}
