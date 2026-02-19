@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Text, Box } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import Image from "next/image";
 import { MotionText, MotionButton, MotionBox } from "../Chakra-page/Motion";
 
