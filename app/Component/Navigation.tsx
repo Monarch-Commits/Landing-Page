@@ -10,160 +10,157 @@ import {
   DrawerOverlay,
   Flex,
   IconButton,
-  // useColorMode,
-  useColorModeValue,
+
   useDisclosure,
   VStack,
+  Text,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { IoIosMenu } from "react-icons/io";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+const BoxMotion = motion(Box);
 
-const ButtonMotion = motion(Button);
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "#" },
-  { label: "Contact", href: "#" },
-  { label: "Features", href: "#" },
-  { label: "Services", href: "#" },
+  { label: "Home", href: "#Home" },
+  { label: "Features", href: "#Features" },
+  { label: "Benefits", href: "#Benefits" }, 
+  { label: "Pricing", href: "#Pricing" },
+  { label: "Contact", href: "#Contact" },
 ];
 
 export default function Navigation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const borderColor = useColorModeValue("gray.200", "gray.700");
-
+  
   return (
-    <Flex
+    <BoxMotion
       as="nav"
       position="fixed"
-      top={0}
-      w="100%"
-      maxW={"100vw"}
-      borderBottom="1px solid"
-      borderColor={borderColor}
-      px={{ base: 4, md: 6, lg: 10 }}
-      justifyContent="space-between"
-      alignItems="center"
+      top={4} 
+      left="50%"
+      initial={{ y: -100, x: "-50%", opacity: 0 }}
+      animate={{ y: 0, x: "-50%", opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      w={{ base: "95%", md: "90%", lg: "1200px" }}
       zIndex={1000}
-      bg={"whiteAlpha.800"}
-      py={{ base: 2, md: 3 }}
+     
+      backdropFilter="blur(10px)"
+      bg="rgba(255, 255, 255, 0.8)"
+      borderRadius="full"
+      border="1px solid"
+      borderColor="whiteAlpha.300"
+      boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.1)"
+      px={{ base: 4, md: 8 }}
+      py={3}
     >
-      {/* LOGO */}
-    <div>
+      <Flex justifyContent="space-between" alignItems="center">
+   
         <Link href={'/'}>
-          <Image
-            src="https://drive.google.com/uc?export=view&id=1czPtHOnb06NAo-awhCgsOgO_uHXNEUVU"
-            width={40}
-            height={40}
-            alt="Logo"
-          />
+          <Flex align="center" gap={2}>
+            <Image
+              src="https://drive.google.com/uc?export=view&id=1czPtHOnb06NAo-awhCgsOgO_uHXNEUVU"
+              width={32}
+              height={32}
+              alt="Logo"
+            />
+           
+          </Flex>
         </Link>
-      </div>
 
-      <Flex
-        gap={4}
-        align="center"
-        display={{ base: "none", md: "flex", lg: "flex" }}
-      >
-        {navLinks.map((navLink, index) => (
-          <Link key={index} href={navLink.href}>
-            <ButtonMotion
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.2,
-                ease: "easeInOut",
-              }}
-              whileHover={{
-                y: -5,
-                color: "green",
-                scale: 1.05,
-                transition: {
-                  duration: 0.2,
-                  ease: "easeInOut",
-                },
-              }}
-              size="sm"
-              variant="ghost"
-            >
-              {navLink.label}
-            </ButtonMotion>
-          </Link>
-        ))}
-      </Flex>
-
-      {/* Right-side Actions */}
-      <Flex gap={3} align="center">
-        <Button
-          size={{ base: "xs", md: "sm", lg: "sm" }}
-          borderRadius="full"
-          bg={"black"}
-          color={"white"}
+        {/* DESKTOP NAV LINKS */}
+        <Flex
+          gap={2}
+          align="center"
+          display={{ base: "none", md: "flex" }}
         >
-          Login
-        </Button>
-        <Button
-          colorScheme="blue"
-          size={{ base: "xs", md: "sm", lg: "sm" }}
-          borderRadius="full"
-        >
-          Get in Touch
-        </Button>
+          {navLinks.map((navLink, index) => (
+            <Link key={index} href={navLink.href}>
+              <Button
+                size="sm"
+                variant="ghost"
+                borderRadius="full"
+                fontSize="sm"
+                fontWeight="medium"
+                _hover={{
+                  bg: "teal.50",
+                  color: "teal.600",
+                }}
+              >
+                {navLink.label}
+              </Button>
+            </Link>
+          ))}
+        </Flex>
 
-        <Box display={{ base: "block", md: "none", lg: "none" }}>
-          {/* Mobile Menu Button */}
+        {/* RIGHT SIDE ACTIONS */}
+        <Flex gap={3} align="center">
+          <Button
+            display={{ base: "none", sm: "block" }}
+            variant="ghost"
+            size="sm"
+            fontWeight="bold"
+            borderRadius="full"
+          >
+            Login
+          </Button>
+          <Button
+            bg="black"
+            color="white"
+            size="sm"
+            borderRadius="full"
+            px={5}
+            _hover={{
+              bg: "teal.600",
+              transform: "scale(1.05)",
+            }}
+            _active={{ transform: "scale(0.95)" }}
+            transition="0.2s"
+          >
+            Get Started
+          </Button>
+
+          {/* MOBILE MENU ICON */}
           <IconButton
-            icon={<IoIosMenu />}
-            variant="outline"
+            display={{ base: "flex", md: "none" }}
+            icon={<HiOutlineMenuAlt3 size={24} />}
+            variant="ghost"
             aria-label="Open Menu"
             onClick={onOpen}
-            borderColor="white"
+            borderRadius="full"
           />
-
-          <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
-            <DrawerOverlay />
-            <DrawerContent>
-              <DrawerHeader borderBottomWidth="1px">📋 Menu</DrawerHeader>
-              <DrawerBody>
-                <VStack align="start" spacing={4}>
-                  {navLinks.map((navLink, index) => (
-                    <Link key={index} href={navLink.href}>
-                      <ButtonMotion
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          duration: 0.5,
-                          delay: index * 0.2,
-                          ease: "easeInOut",
-                        }}
-                        whileHover={{
-                          y: -5,
-                          color: "green",
-                          scale: 1.05,
-                          transition: {
-                            duration: 0.2,
-                            ease: "easeInOut",
-                          },
-                        }}
-                        size="sm"
-                        variant="ghost"
-                      >
-                        {navLink.label}
-                      </ButtonMotion>
-                    </Link>
-                  ))}
-                </VStack>
-              </DrawerBody>
-            </DrawerContent>
-          </Drawer>
-        </Box>
-
-        {/*  <Button onClick={toggleColorMode} size="md" variant="ghost">
-          {colorMode === "light" ? <FaCloudMoon /> : <FaCloudSun />}
-        </Button> */}
+        </Flex>
       </Flex>
-    </Flex>
+
+      {/* MOBILE DRAWER */}
+      <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay backdropFilter="blur(4px)" />
+        <DrawerContent borderLeftRadius="2xl">
+          <DrawerHeader borderBottomWidth="1px" textAlign="center" fontSize="xl" fontWeight="bold">
+            NAVIGATION
+          </DrawerHeader>
+          <DrawerBody py={10}>
+            <VStack spacing={6}>
+              {navLinks.map((navLink, index) => (
+                <Link key={index} href={navLink.href} onClick={onClose} style={{ width: '100%' }}>
+                  <Button
+                    w="100%"
+                    variant="ghost"
+                    fontSize="lg"
+                    py={6}
+                    borderRadius="xl"
+                  >
+                    {navLink.label}
+                  </Button>
+                </Link>
+              ))}
+              <Box w="100%" h="1px" bg="gray.100" />
+              <Button w="100%" colorScheme="teal" borderRadius="xl" py={6}>
+                Login Now
+              </Button>
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </BoxMotion>
   );
 }

@@ -21,7 +21,7 @@ const projects = [
 
 export default function Contact() {
   return (
-    <Box>
+    <Box id="Contact">
       {projects.map((projects, index) => (
         <MotionText
           key={index}

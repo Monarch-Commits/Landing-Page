@@ -15,9 +15,11 @@ import { FaRegFileAlt } from "react-icons/fa";
 import { IoStatsChartOutline } from "react-icons/io5";
 import { BsWater } from "react-icons/bs";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
+
 export default function Main() {
   return (
     <Flex
+      id="Home"
       w="100%"
       h={{ base: "100%", md: "100%", lg: "100vh" }}
       justifyContent="center"
@@ -28,7 +30,7 @@ export default function Main() {
     >
       <Flex w={"100%"} flexDirection="column" gap={3} alignItems="center">
         <TextMotion
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
@@ -42,12 +44,12 @@ export default function Main() {
           The Future of Manufacturing with Latest Technology
         </TextMotion>
         <TextMotion
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
           as="p"
-          fontSize="sm"
+
           textAlign={"center"}
           px={{ base: 2, md: 4, lg: 6 }}
         >
@@ -56,7 +58,7 @@ export default function Main() {
         </TextMotion>
         <HStack zIndex={1}>
           <ButtonMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
@@ -69,7 +71,7 @@ export default function Main() {
             Get Started
           </ButtonMotion>
           <ButtonMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
@@ -82,7 +84,7 @@ export default function Main() {
         </HStack>
         <Flex direction="column" alignItems="center">
           <MotionHStack
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
@@ -98,7 +100,7 @@ export default function Main() {
             <Text as="b">5.0</Text>
           </MotionHStack>
           <TextMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1, ease: "easeInOut" }}
@@ -110,7 +112,7 @@ export default function Main() {
         </Flex>
 
         <TextMotion
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
@@ -122,7 +124,7 @@ export default function Main() {
           <GiStarSwirl size="24" />
         </TextMotion>
         <TextMotion
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
@@ -134,7 +136,7 @@ export default function Main() {
           <BsArrowDownLeftCircle size="24" />
         </TextMotion>
         <TextMotion
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
@@ -150,7 +152,7 @@ export default function Main() {
           <FaRegFileAlt />
         </TextMotion>
         <TextMotion
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
@@ -166,7 +168,7 @@ export default function Main() {
           <IoStatsChartOutline />
         </TextMotion>
         <TextMotion
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
@@ -193,7 +195,7 @@ export default function Main() {
           display={{ base: "flex", md: "flex", lg: "flex" }}
         >
           <BoxMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
@@ -202,13 +204,13 @@ export default function Main() {
             h={300}
             borderRadius="lg"
             w={200}
-            backgroundImage="url('https://plus.unsplash.com/premium_photo-1680404114169-e254afa55a16?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" // palitan ito ng actual na -
-            backgroundSize="cover" // para sakto sa box ang image
-            backgroundPosition="center" // center ang image
-            backgroundRepeat="no-repeat" // hindi mag-uulit
+            backgroundImage="url('https://plus.unsplash.com/premium_photo-1680404114169-e254afa55a16?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+            backgroundSize="cover"
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
           ></BoxMotion>
           <BoxMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
@@ -232,7 +234,7 @@ export default function Main() {
             </Text>
           </BoxMotion>
           <BoxMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
@@ -272,7 +274,7 @@ export default function Main() {
             </Text>
           </BoxMotion>
           <BoxMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
@@ -296,7 +298,7 @@ export default function Main() {
             </Text>
           </BoxMotion>
           <BoxMotion
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}

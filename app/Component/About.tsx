@@ -1,3 +1,4 @@
+"use client";
 import { Box, Button, Flex, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 import { GoNorthStar } from "react-icons/go";
 import { RiArrowRightUpLine } from "react-icons/ri";
@@ -61,7 +62,8 @@ export default function StatsSection() {
     >
       <Box w={{ base: "90%", md: "90%", lg: "40%" }} gap={4}>
         <MotionText
-          viewport={{ once: false, amount: 0.3 }}
+          // BINAGO: once: true para hindi na uulit ang animation
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: "easeInOut" }}
@@ -71,7 +73,8 @@ export default function StatsSection() {
           Efficient and Integrated Manufacturing Services
         </MotionText>
         <MotionText
-          viewport={{ once: false, amount: 0.3 }}
+          // BINAGO: once: true
+          viewport={{ once: true, amount: 0.3 }}
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
@@ -93,7 +96,8 @@ export default function StatsSection() {
       >
         {statsData.map((item, index) => (
           <MotionBox
-            viewport={{ once: false, amount: 0.3 }}
+            // BINAGO: once: true para sa bawat card sa grid
+            viewport={{ once: true, amount: 0.3 }}
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
